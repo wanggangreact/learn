@@ -1,0 +1,49 @@
+
+.swiper-wrapper {
+    text-align: center;
+    padding: 0 0 10px;
+    background-image: linear-gradient(0,#e1e1e1,#e1e1e1 50%,transparent 50%);
+    background-position: 100% 100%;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    height: 175px;
+}
+
+.ant-carousel .slick-slide {
+    text-align: center;
+    background: #fff;
+    overflow: hidden;
+  }
+  
+  .ant-carousel .slick-slide h3 {
+    color: #000;
+  }
+
+  .swiper-wrapper .item-section {
+    width: 20%;
+    height: 87px;
+    padding: 13px 0 0;
+    display: block;
+    float: left;
+    color: #333;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 13px;
+  }
+  .swiper-wrapper .item-section .icon {
+    border-radius: 22px;
+    -webkit-border-radius: 22px;
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 2px;
+    color: #333;
+    position: relative
+  }
+  .swiper-wrapper .item-section .buttom-text{
+    display: inline-block;
+    vertical-align: top;
+  }
