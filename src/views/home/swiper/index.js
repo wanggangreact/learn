@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-import                axios from 'axios';
+import   axios              from 'axios';
 import { Carousel }         from 'antd';
 
 class SwiperItem extends Component {
