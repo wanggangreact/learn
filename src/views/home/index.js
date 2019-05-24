@@ -4,6 +4,7 @@ import Header     from './header';
 // import Discount   from './header';
 import HeaderLine from './headerLine';
 import SwiperItem from './swiper';
+import ProductList from './product';
 // import LikeList   from './likeList';
 
 class Entry extends Component {
@@ -13,6 +14,7 @@ class Entry extends Component {
           <Header />
           <HeaderLine />
           <SwiperItem />
+          <ProductList />
       </div>
     )
   }
