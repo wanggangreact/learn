@@ -9,18 +9,76 @@ class ProductList extends Component {
           productList: []
         }
       }
+
+ //获取滚动条当前的位置 
+ getScrollTop() { 
+  var scrollTop = 0; 
+  if (document.documentElement && document.documentElement.scrollTop) { 
+      scrollTop = document.documentElement.scrollTop; 
+  } 
+  else if (document.body) { 
+      scrollTop = document.body.scrollTop; 
+  } 
+  return scrollTop; 
+} 
+
+//获取当前可视范围的高度 
+getClientHeight() { 
+  var clientHeight = 0; 
+  if (document.body.clientHeight && document.documentElement.clientHeight) { 
+  clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight); 
+  } 
+  else { 
+  clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight); 
+  } 
+  return clientHeight; 
+} 
+
+//获取文档完整的高度 
+getScrollHeight() { 
+  return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight); 
+} 
+
+
       componentDidMount() {
+      
+
         let url = "http://localhost:3000/mock/products/likes.json";
         axios.get(url).then(res => {
           if(res.status === 200) {
              this.setState({
                 productList: res.data
              });
+          //    this.setState({
+          //     productList: res.data.concat(res.data)
+          //  });
              console.log(this.state.productList);
           } else {
              console.log("出错了！");
           }
         });
+
+
+        //loadMore
+       
+        let objthis = this;
+        window.onscroll = () => { 
+          let loadFlag = objthis.getScrollTop() + objthis.getClientHeight() == objthis.getScrollHeight();
+          if (loadFlag) { 
+              console.log(loadFlag);
+                axios.get(url).then(res => {
+                    if(res.status === 200) {
+                      objthis.setState({
+                              productList: objthis.state.productList.concat(res.data)
+                            });
+                        console.log(objthis.state.productList);
+                    } else {
+                        console.log("出错了！");
+                    }
+                });
+            }
+        }
+
       }
 
   render() {
